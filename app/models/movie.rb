@@ -8,6 +8,10 @@ class Movie < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :actors,
+             :through => :characters,
+             :source => :actor
+
   # Validations
 
   validates :duration, :numericality => { :greater_than => 0, :less_than_or_equal_to => 2764800 }
